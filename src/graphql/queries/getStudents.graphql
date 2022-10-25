@@ -1,0 +1,8 @@
+query GetStudents {
+  students {
+    nodes {
+      id
+      name
+    }
+  }
+}
