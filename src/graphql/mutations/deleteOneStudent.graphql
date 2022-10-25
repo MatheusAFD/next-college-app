@@ -1,0 +1,7 @@
+mutation deleteOneStudent($input: DeleteOneStudentInput!) {
+  deleteOneStudent(input: $input) {
+    id
+    name
+    deletedAt
+  }
+}
