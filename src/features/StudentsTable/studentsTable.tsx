@@ -19,3 +19,15 @@
       setPage(page - 1);
     }
   }
+
+          {data?.students.nodes.map((student) => {
+            return (
+              <CardStudent
+                key={student.id}
+                name={student.name}
+                id={student.id}
+                keyStudent={student.key}
+                createdAt={student.createdAt}
+              />
+            );
+          })}
