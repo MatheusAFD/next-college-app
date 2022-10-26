@@ -1,9 +1,9 @@
-import { Flex, Image, ListItem } from "@chakra-ui/react";
+import { Box, Flex, Image, ListItem } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
 interface ImageProps {
   text: string;
-  src: string;
+  src?: string;
   active?: boolean;
 }
 
