@@ -1181,10 +1181,13 @@ export type DeleteOneStudentMutationVariables = Exact<{
 
 export type DeleteOneStudentMutation = { __typename?: 'Mutation', deleteOneStudent: { __typename?: 'StudentDeleteResponse', id?: string | null, name?: string | null, deletedAt?: any | null } };
 
-export type GetStudentsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetStudentsQueryVariables = Exact<{
+  limit: Scalars['Int'];
+  offset: Scalars['Int'];
+}>;
 
 
-export type GetStudentsQuery = { __typename?: 'Query', students: { __typename?: 'StudentConnection', nodes: Array<{ __typename?: 'Student', id: string, name: string }> } };
+export type GetStudentsQuery = { __typename?: 'Query', students: { __typename?: 'StudentConnection', nodes: Array<{ __typename?: 'Student', id: string, key: string, name: string, createdAt: any }>, pageInfo: { __typename?: 'OffsetPageInfo', hasNextPage?: boolean | null, hasPreviousPage?: boolean | null } } };
 
 
 export const DeleteOneStudentDocument = gql`
@@ -1223,11 +1226,20 @@ export type DeleteOneStudentMutationHookResult = ReturnType<typeof useDeleteOneS
 export type DeleteOneStudentMutationResult = Apollo.MutationResult<DeleteOneStudentMutation>;
 export type DeleteOneStudentMutationOptions = Apollo.BaseMutationOptions<DeleteOneStudentMutation, DeleteOneStudentMutationVariables>;
 export const GetStudentsDocument = gql`
-    query GetStudents {
-  students {
+    query getStudents($limit: Int!, $offset: Int!) {
+  students(
+    paging: {limit: $limit, offset: $offset}
+    sorting: {field: createdAt, direction: DESC}
+  ) {
     nodes {
       id
+      key
       name
+      createdAt
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
     }
   }
 }
@@ -1245,10 +1257,12 @@ export const GetStudentsDocument = gql`
  * @example
  * const { data, loading, error } = useGetStudentsQuery({
  *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
  *   },
  * });
  */
-export function useGetStudentsQuery(baseOptions?: Apollo.QueryHookOptions<GetStudentsQuery, GetStudentsQueryVariables>) {
+export function useGetStudentsQuery(baseOptions: Apollo.QueryHookOptions<GetStudentsQuery, GetStudentsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<GetStudentsQuery, GetStudentsQueryVariables>(GetStudentsDocument, options);
       }

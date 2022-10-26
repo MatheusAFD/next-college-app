@@ -1,8 +1,17 @@
-query GetStudents {
-  students {
+query getStudents($limit: Int!, $offset: Int!) {
+  students(
+    paging: { limit: $limit, offset: $offset }
+    sorting: { field: createdAt, direction: DESC }
+  ) {
     nodes {
       id
+      key
       name
+      createdAt
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
     }
   }
 }
