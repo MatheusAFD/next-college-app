@@ -7,10 +7,7 @@ const Home: NextPage = () => {
   return (
     <>
       <h1>Home</h1>
-      <Link href="/admin/students">
-        <a>Students</a>
-      </Link>
-      <h2 onClick={() => router.push("/admin/students")}>Students</h2>
+      <Link href="/dashboard/admin">Students</Link>
     </>
   );
 };
