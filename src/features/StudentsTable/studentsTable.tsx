@@ -31,3 +31,10 @@
               />
             );
           })}
+      <PaginationTableData
+        hasNextPage={hasNextPage}
+        page={page}
+        setNextPage={setNextPage}
+        hasPreviousPage={hasPreviusPage}
+        setPreviousPage={setPreviusPage}
+      />
