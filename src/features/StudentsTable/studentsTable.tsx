@@ -1,4 +1,5 @@
   const [page, setPage] = useState(0);
+  const PAGE_SIZE = 8;
   const { data } = useGetStudentsQuery({
     variables: {
       limit: PAGE_SIZE,
