@@ -1,5 +1,6 @@
 import { Box, Flex, List, Text } from "@chakra-ui/react";
 import IconLogo from "../../atomic/atom/logo";
+
 import dashboard from "../../assets/dashboard.png";
 import product from "../../assets/product.png";
 import customers from "../../assets/customers.png";
@@ -9,6 +10,7 @@ import { SideBarItemList } from "../../atomic/atom/SideBarItemList/sideBarItemLi
 export function SideBar() {
   return (
     <Box
+      as="aside"
       bg="white"
       w="306px"
       p="28px 36px"
@@ -25,8 +27,8 @@ export function SideBar() {
 
       <List mt="64px" display="flex" gap="40px" flexDirection="column">
         <SideBarItemList src={dashboard.src} text="Dashboard" />
-        <SideBarItemList src={product.src} text="Product" />
-        <SideBarItemList src={customers.src} text="Customers" active />
+        <SideBarItemList src={product.src} text="Insert Student" />
+        <SideBarItemList src={customers.src} text="Students" active />
       </List>
     </Box>
   );
