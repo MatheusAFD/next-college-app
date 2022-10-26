@@ -9,7 +9,7 @@ export default function AdminTemplate({ children }: { children?: ReactNode }) {
         <GridItem>
           <SideBar />
         </GridItem>
-        <GridItem>{/* {children} */}</GridItem>
+        <GridItem>{children}</GridItem>
       </Grid>
     </>
   );
