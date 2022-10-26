@@ -21,14 +21,14 @@ export function SideBarItemList({ text, src, active }: ImageProps) {
       >
         <Flex gap="14px">
           <Image src={src} />
-          <ListItem
+          <Box
             display="flex"
             alignItems="center"
             color={active === true ? "white" : "gray.500"}
             fontSize="14px"
           >
             {text}
-          </ListItem>
+          </Box>
         </Flex>
         <ChevronRightIcon
           color={active === true ? "white" : "gray.500"}
