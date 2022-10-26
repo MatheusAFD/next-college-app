@@ -1,3 +1,4 @@
+  const [page, setPage] = useState(0);
   const hasPreviusPage = data?.students.pageInfo.hasPreviousPage;
   const hasNextPage = data?.students.pageInfo.hasNextPage;
   function setNextPage() {
